@@ -1,0 +1,4 @@
+实现初始化数据sql生成
+
+实现将mysql数据保存到hive
+实现将hive数据保存到mysql
