@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script th:src="@{../js/jquery-3.3.1.min.js}"></script>
+</head>
+<body>
+    <h2 th:text="${hello}">Hello </h2>
+    <p>商品：大数据教学视频</p>
+    <button id="add-shopping-cart">加入购物车</button>
+</body>
+<script>
+    $("#add-shopping-cart").click(function(){
+        $.ajax({
+            type:'POST',
+            data:{name:'西辰'},
+            url:"/cart/add",//请求的action路径
+            success:function(returnValue){ //请求成功后处理函数。
+                window.location.href = "/cart/succ"
+            },
+            error:function () {//请求失败处理函数
+                alert('请求失败');
+            }
+        });
+    })
+</script>
+<script th:src="@{../js/twq.js}"></script>
+</html>
+

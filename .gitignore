@@ -1,3 +1,8 @@
 /.idea/
 /dw-course/batch-etl/src/main/resources/sql/
 /dw-course/batch-etl/target/
+/dw-course/log-webServer/target/
+/dw-course/trade-sys/target/
+/LOG_HOME_IS_UNDEFINED/
+/trade-sys.log
+/LOG_HOME_IS_UNDEFINED/user-action.log
