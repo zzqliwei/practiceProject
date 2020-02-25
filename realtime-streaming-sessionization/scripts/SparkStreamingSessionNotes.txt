@@ -1,0 +1,44 @@
+# HBase Shell
+create 'real_time_session', 's'
+
+# hive
+//create table
+CREATE EXTERNAL TABLE real_time_session_1 (
+  id string,
+  ONE_TO_TEN_MINUTE_COUNT string,
+  OVER_TEN_MINUTES_COUNT string,
+  TOTAL_SESSION_COUNTS string,
+  TOTAL_SESSION_EVENT_COUNTS string DEFAULT "0",
+  TOTAL_SESSION_TIME string,
+  UNDER_A_MINUTE_COUNT string,
+  NEW_SESSION_COUNTS string,
+  EVENT_COUNTS string,
+  DEAD_SESSION_COUNTS string)
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES (
+  "hbase.columns.mapping" =
+  ":key,s:ONE_TO_TEN_MINUTE_COUNT,s:OVER_TEN_MINUTES_COUNT,s:TOTAL_SESSION_COUNTS,s:TOTAL_SESSION_EVENT_COUNTS,
+  s:TOTAL_SESSION_TIME,s:UNDER_A_MINUTE_COUNT,s:NEW_SESSION_COUNTS,s:EVENT_COUNTS,s:DEAD_SESSION_COUNTS"
+)
+TBLPROPERTIES("hbase.table.name" = "real_time_session");
+
+# Spark Streaming
+export HADOOP_CONF_DIR=/home/hadoop-twq/bigdata/hadoop-2.7.5/etc/hadoop/
+nohup spark-submit \
+--class com.twq.sessionize.SessionizeData \
+--master yarn \
+--deploy-mode client \
+--executor-memory 512M \
+--num-executors 1 \
+--executor-cores 1 \
+--driver-java-options "-Dweb.streaming.shutdown.filepath=hdfs://master:9999/user/hadoop-twq/real-time-analysis/shutdownfileflag" \
+/home/hadoop-twq/real-time-analysis/realtime-streaming-sessionization-1.0-SNAPSHOT-jar-with-dependencies.jar \
+hdfs://master:9999/user/hadoop-twq/real-time-analysis/output real_time_session s hdfs://master:9999/user/hadoop-twq/real-time-analysis/checkpoint session master:9092 master:2181 /real_time_session \
+>> /home/hadoop-twq/real-time-analysis/SessionizeData_output.log 2>&1 &
+
+# Apache Flume
+apache-flume-1.8.0-bin/bin/flume-ng agent --conf conf --conf-file taildir_kafka_flume-conf.properties --name agent1
+
+# 模拟写日志
+scala -cp /home/hadoop-twq/real-time-analysis/realtime-streaming-sessionization-1.0-SNAPSHOT.jar \
+com.twq.sessionize.datamock.SessionDataFileWriter /home/hadoop-twq/real-time-analysis/logs/user-visit.log 2000
