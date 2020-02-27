@@ -1,6 +1,6 @@
 package com.westar.parser.objectbuilder;
 
-import com.twq.iplocation.IpLocationParser;
+import com.westar.iplocation.IpLocationParser;
 import com.westar.parser.dataobject.BaseDataObject;
 import com.westar.parser.utils.ColumnReader;
 import com.westar.prepaser.PreParsedLog;

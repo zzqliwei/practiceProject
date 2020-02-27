@@ -1,6 +1,6 @@
 package com.westar.parser.dataobject;
 
-import com.twq.iplocation.IpLocation;
+import com.westar.iplocation.IpLocation;
 import com.westar.parser.utils.DateUtils;
 import eu.bitwalker.useragentutils.UserAgent;
 

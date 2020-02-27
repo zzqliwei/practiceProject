@@ -1,6 +1,6 @@
 package com.westar.parser.configuration.loader;
 
-import com.twq.metadata.model.TargetPage;
+import com.westar.metadata.model.TargetPage;
 
 import java.util.List;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.twq.iplocation;
+package com.westar.iplocation;
 
 public class IpLocation {
     private String country;

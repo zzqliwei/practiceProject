@@ -1,8 +1,8 @@
 package com.westar.parser.configuration.loader.impl;
 
-import com.twq.metadata.api.ProfileConfigManager;
-import com.twq.metadata.model.TargetPage;
-import com.twq.parser.configuration.loader.ProfileConfigLoader;
+import com.westar.metadata.api.ProfileConfigManager;
+import com.westar.metadata.model.TargetPage;
+import com.westar.parser.configuration.loader.ProfileConfigLoader;
 
 import java.util.ArrayList;
 import java.util.HashMap;

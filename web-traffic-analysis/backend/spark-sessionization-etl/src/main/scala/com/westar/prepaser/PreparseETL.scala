@@ -1,4 +1,4 @@
-package com.twq.prepaser
+package com.westar.prepaser
 
 import com.westar.prepaser.{PreParsedLog, WebLogPreParser}
 import org.apache.spark.SparkConf

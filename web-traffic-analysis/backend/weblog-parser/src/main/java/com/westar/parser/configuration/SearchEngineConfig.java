@@ -1,7 +1,7 @@
 package com.westar.parser.configuration;
 
-import com.twq.parser.matches.MatchType;
-import com.twq.parser.matches.StringMatcher;
+import com.westar.parser.matches.MatchType;
+import com.westar.parser.matches.StringMatcher;
 
 /**
  *  搜索引擎配置类

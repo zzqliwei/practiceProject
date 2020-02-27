@@ -1,4 +1,4 @@
-package com.twq.iplocation;
+package com.westar.iplocation;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
