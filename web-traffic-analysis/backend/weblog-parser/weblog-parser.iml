@@ -10,15 +10,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="weblog-preparser" />
-    <orderEntry type="module" module-name="IPLocation-parser" />
-    <orderEntry type="module" module-name="metadata" />
     <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver:3.6.4" level="project" />
     <orderEntry type="library" name="Maven: org.mongodb:bson:3.6.4" level="project" />
     <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver-core:3.6.4" level="project" />
     <orderEntry type="library" name="Maven: eu.bitwalker:UserAgentUtils:1.21" level="project" />
-    <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.12" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
   </component>
 </module>
